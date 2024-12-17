@@ -37,9 +37,12 @@ O objetivo é avaliar a eficiência de ambas as tecnologias na execução de cá
    source ./emsdk_env.sh
 
 ### 3️⃣ **Compile o Código C para WebAssembly:**
+1. **Compile o projeto**:  
+    ```bash
    emcc fft.c -o fft.js -s EXPORTED_FUNCTIONS="['_fft']" -s MODULARIZE=1 -s ALLOW_MEMORY_GROWTH=1
 
 ### 4️⃣ **Executar Localmente:**
-emrun --no_browser --port 8080
+    ```bash
+    emrun --no_browser --port 8080
 
 
