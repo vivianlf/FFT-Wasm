@@ -1,32 +1,34 @@
-# Comparação de Gradiente Descendente: JavaScript vs WebAssembly (WASM)
+# Comparação de FFT: JavaScript vs WebAssembly (WASM)
 
-Este projeto compara o desempenho de um algoritmo de Gradiente Descendente implementado em JavaScript Puro e WebAssembly (WASM).  
-O objetivo é verificar a eficiência de ambos na execução de cálculos intensivos. 
-
----
-
-# O que o projeto faz?
-- 🧮 **Executa o Gradiente Descendente** para minimizar a função \( f(x) = x^2 \)  
-- 📈 **Compara o desempenho** entre JavaScript e WebAssembly  
-- 🕒 **Exibe o tempo de execução** e o valor de \( x \) após a convergência  
+Este projeto compara o desempenho de um algoritmo **Transformada Rápida de Fourier (FFT)** implementado em **JavaScript Puro** e **WebAssembly (WASM)**.  
+O objetivo é avaliar a eficiência de ambas as tecnologias na execução de cálculos matemáticos intensivos.
 
 ---
 
-## 📦 **Tecnologias Utilizadas**
-- **JavaScript**: Para a interface e execução do gradiente.  
-- **WebAssembly (WASM)**: Para alto desempenho nas operações de gradiente.  
-- **Emscripten**: Para compilar C/C++ para WebAssembly.  
-- **HTML/CSS**: Interface gráfica simples.  
+## 📋 **O que o projeto faz?**
+- **Executa a FFT** (Transformada Rápida de Fourier) em um sinal de entrada.
+- **Compara o desempenho** entre as implementações em JavaScript Puro e WebAssembly.
+- **Exibe o tempo de execução** para cada abordagem no console e apresenta os resultados processados.
 
 ---
 
-## 🚀 **Como executar?**
+## **Tecnologias Utilizadas**
+- **JavaScript**: Implementação da FFT diretamente no navegador.
+- **WebAssembly (WASM)**: Algoritmo FFT compilado a partir de C para alto desempenho.
+- **Emscripten**: Compilador utilizado para converter C em WebAssembly.
+- **HTML/CSS**: Interface simples para interagir com o projeto.
+
+---
+
+## **Como Executar?**
 
 ### 1️⃣ **Requisitos**
-- **Emscripten** (para compilar o C para WebAssembly)  
+- **Emscripten** instalado no sistema (para compilar o código C para WASM).
+
+---
 
 ### 2️⃣ **Configurar o Ambiente**
-1. **Instalar Emscripten**:  
+1. **Instale o Emscripten**:  
    ```bash
    git clone https://github.com/emscripten-core/emsdk.git
    cd emsdk
@@ -34,6 +36,10 @@ O objetivo é verificar a eficiência de ambos na execução de cálculos intens
    ./emsdk activate latest
    source ./emsdk_env.sh
 
-# Compilar o Código C para WebAssembly:
-   emcc gradiente.c -o gradiente.js -s EXPORTED_FUNCTIONS="['_gradiente_descendente']" -s MODULARIZE=1
+### 3️⃣ **Compile o Código C para WebAssembly:**
+   emcc fft.c -o fft.js -s EXPORTED_FUNCTIONS="['_fft']" -s MODULARIZE=1 -s ALLOW_MEMORY_GROWTH=1
+
+### 4️⃣ **Executar Localmente:**
+emrun --no_browser --port 8080
+
 
